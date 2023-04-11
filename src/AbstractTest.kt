@@ -1,26 +1,34 @@
 abstract class Animal{
-    var name : String = ""
+    var name: String =""
     abstract fun move()
 }
-class Tiger : Animal(){
-    var age : Int = 0
-    override fun move(){
-        println("네 발로 이동한다.")
-    }
+interface iAnimal {
+    abstract fun eat()
 
 }
-
-class Eagle : Animal(){
-    var home : String = ""
+class iTiger : Animal(), iAnimal{
     override fun move(){
-        println("날개로 날아간다.")
+        println("네 발로 이동한다.");
+    }
+    override fun eat(){
+        println("호랑이는 민서를 좋아해.");
+    }
+    fun CatchDear(){
+        println("호랑이는 사슴을 잡는다.");
     }
 }
-fun main() {
-    var tiger : Tiger = Tiger()
-    var eagle : Eagle = Eagle()
+class iCat : iAnimal{
+    override fun eat(){
+        println("고양이는 생선을 좋아해.");
+    }
+}
+
+
+fun main(){
+    var cat = iCat()
+    var tiger = iTiger()
+    cat.eat()
+
     tiger.move()
-    eagle.move()
-
-
+    cat.eat()
 }
